@@ -1,7 +1,8 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from multiple_column_indexes.models import Base
+
+from multiple_column_indexes.tests.models import Base
 
 # MySQL 연결 설정
 DATABASE_URL = "mysql+pymysql://root:root@localhost:3306/sql_tunning"

@@ -1,7 +1,7 @@
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from multiple_column_indexes.test.fixture import 테스트_주문
+from multiple_column_indexes.tests.fixture import 테스트_주문
 
 
 # Reference : MySQL 성능 최적화 강의 (https://www.inflearn.com/course/mysql-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94/dashboard)

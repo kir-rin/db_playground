@@ -3,7 +3,7 @@ import random
 import pytest
 from sqlalchemy.orm import Session
 
-from multiple_column_indexes.models import Order
+from .models import Order
 
 
 @pytest.fixture
