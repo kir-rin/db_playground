@@ -7,6 +7,11 @@ from sqlalchemy.ext.asyncio.session import AsyncSession
 from lost_update_problem.models import Account
 
 
+# Note:
+#   동시성 문제를 해결하기 위해서는 낙관적 락, 비관적 락, 분산 락등을 사용한다.
+#   그 중의 분산 락은 TTL로 인해 락이 해제되고 나서, 커밋되는 경우 갱신 분실 문제가 일어날 수 있기 때문에
+#   낙관적 락을 같이 사용할 수 있다.
+#   cf. https://haon.blog/article/toss-slash/broker-issue-concurrency-and-network-latency/#%EB%B6%84%EC%82%B0-%EB%9D%BD-%ED%83%80%EC%9E%84%EC%95%84%EC%9B%83-%EC%84%A4%EC%A0%95%EA%B3%BC-%EA%B7%B8%EC%97%90-%EB%94%B0%EB%A5%B8-%EA%B0%B1%EC%8B%A4%EB%AC%B8%EC%A0%9C
 @pytest.mark.asyncio()
 async def test_lost_update(async_session: AsyncGenerator[AsyncSession, None]):
     async with async_session() as session:
