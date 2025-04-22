@@ -52,7 +52,6 @@ def session3_func(Session, start_event):
     return error
 
 
-# Reference : https://blog.liner.space/duplicated-key-insert-and-gap-lock
 def test_unique_index_dead_lock(engine):
     """
     Flow:

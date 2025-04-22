@@ -4,7 +4,6 @@ from sqlalchemy import text
 from sqlalchemy.orm import sessionmaker
 
 
-# Reference : https://blog.liner.space/duplicated-key-insert-and-gap-lock
 def test_gap_lock_dead_lock(engine):
     """
     Flow:
