@@ -1,8 +1,9 @@
 on:
     pull_request:
-      types: [opened, reopened, ready_for_review]
+      types: [opened, reopened, ready_for_review, edited]
 jobs:
     pr_agent_job:
+     
       if: ${{ github.event.sender.type != 'Bot' }}
       runs-on: ubuntu-latest
       permissions:
@@ -12,8 +13,8 @@ jobs:
       steps:
         - name: PR Agent action step
           id: pragent
-          uses: qodo-ai/pr-agent@main
+          uses: dst03106/pr-agent@feature/check-model-env
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             GOOGLE_AI_STUDIO__GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-            CONFIG__MODEL: "gemini/gemini-1.5-flash"
+            
